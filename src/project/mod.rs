@@ -17,7 +17,7 @@ mod scene;
 mod script;
 mod variable;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Project {
     objects: Vec<Object>,
     scenes: Vec<Scene>,
@@ -49,7 +49,7 @@ mod tests {
 
     #[test]
     fn read_project_from_file() -> Result<()> {
-        Project::from_file("tests/data/project.json")?;
+        println!("{:#?}", Project::from_file("tests/data/project.json")?);
         Ok(())
     }
 }

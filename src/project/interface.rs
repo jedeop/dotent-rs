@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use super::common::Id;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Interface {
     canvas_width: u32,

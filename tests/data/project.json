@@ -1,9 +1,71 @@
 {
   "objects": [
     {
+      "id": "kkkg",
+      "name": "(1)엔트리봇",
+      "script": "[[{\"id\":\"jw7z\",\"x\":29,\"y\":74,\"type\":\"when_some_key_pressed\",\"params\":[null,\"81\"],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},{\"id\":\"beye\",\"x\":0,\"y\":0,\"type\":\"move_y\",\"params\":[{\"id\":\"wlds\",\"x\":0,\"y\":0,\"type\":\"number\",\"params\":[\"10\"],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]}]]",
+      "objectType": "sprite",
+      "rotateMethod": "free",
+      "scene": "7dwq",
+      "sprite": {
+        "pictures": [
+          {
+            "id": "lbta",
+            "dimension": {
+              "width": 284,
+              "height": 350,
+              "scaleX": 0.31545741324921134,
+              "scaleY": 0.31545741324921134
+            },
+            "filename": "w3dh1ia5l520g4m324r59840fb1q9aa8",
+            "name": "걷는 엔트리봇 1",
+            "imageType": "png",
+            "fileurl": "temp/w3/dh/image/w3dh1ia5l520g4m324r59840fb1q9aa8.png"
+          },
+          {
+            "id": "clvs",
+            "dimension": {
+              "width": 284,
+              "height": 350
+            },
+            "filename": "xsi6agr8l520g4m324r59840fb1qa3lk",
+            "name": "(1)엔트리봇_걷기2",
+            "imageType": "png",
+            "fileurl": "temp/xs/i6/image/xsi6agr8l520g4m324r59840fb1qa3lk.png"
+          }
+        ],
+        "sounds": [
+          {
+            "duration": 1.3,
+            "id": "a410",
+            "filename": "ki4hcks8l520g4m324r59840fb1q8doo",
+            "name": "강아지 짖는 소리",
+            "fileurl": "temp/ki/4h/sound/ki4hcks8l520g4m324r59840fb1q8doo.mp3",
+            "ext": ".mp3"
+          }
+        ]
+      },
+      "selectedPictureId": "lbta",
+      "lock": false,
+      "entity": {
+        "x": 0,
+        "y": 0,
+        "regX": 142,
+        "regY": 175,
+        "scaleX": 0.31545741324921134,
+        "scaleY": 0.31545741324921134,
+        "rotation": 0,
+        "direction": 90,
+        "width": 284,
+        "height": 350,
+        "font": "undefinedpx ",
+        "visible": true
+      }
+    },
+    {
       "id": "7y0y",
       "name": "엔트리봇",
-      "script": "[[{\"id\":\"7hv8\",\"x\":50,\"y\":30,\"type\":\"when_run_button_click\",\"params\":[null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},{\"id\":\"l1bm\",\"x\":0,\"y\":0,\"type\":\"wait_second\",\"params\":[{\"id\":\"ch5y\",\"x\":0,\"y\":0,\"type\":\"number\",\"params\":[\"1\"],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},{\"id\":\"v8vh\",\"x\":0,\"y\":0,\"type\":\"set_variable\",\"params\":[\"p341\",{\"id\":\"f8xo\",\"x\":0,\"y\":0,\"type\":\"text\",\"params\":[\"5\"],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},{\"id\":\"55n3\",\"x\":0,\"y\":0,\"type\":\"repeat_basic\",\"params\":[{\"id\":\"ru8h\",\"x\":0,\"y\":0,\"type\":\"number\",\"params\":[10],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[[{\"id\":\"04tm\",\"x\":0,\"y\":0,\"type\":\"move_direction\",\"params\":[{\"id\":\"cffq\",\"x\":0,\"y\":0,\"type\":\"get_variable\",\"params\":[\"p341\",null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]}]],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]}]]",
+      "script": "[[{\"id\":\"di8t\",\"x\":50,\"y\":30,\"type\":\"when_run_button_click\",\"params\":[null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},{\"id\":\"oj5k\",\"x\":0,\"y\":0,\"type\":\"repeat_basic\",\"params\":[{\"id\":\"sonx\",\"x\":0,\"y\":0,\"type\":\"number\",\"params\":[10],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[[{\"id\":\"wgtj\",\"x\":0,\"y\":0,\"type\":\"move_direction\",\"params\":[{\"id\":\"llfl\",\"x\":0,\"y\":0,\"type\":\"number\",\"params\":[10],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]}]],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]}]]",
       "objectType": "sprite",
       "rotateMethod": "free",
       "scene": "7dwq",
@@ -14,10 +76,10 @@
             "dimension": {
               "width": 284,
               "height": 350,
-              "scaleX": 0.3154574132492113,
-              "scaleY": 0.3154574132492113
+              "scaleX": 0.2075285739741236,
+              "scaleY": 0.2075285739741236
             },
-            "fileurl": "/lib/entry-js/images/media/entrybot1.png",
+            "fileurl": "./bower_components/entry-js/images/media/entrybot1.png",
             "name": "엔트리봇_걷기1",
             "scale": 100,
             "imageType": "png"
@@ -28,7 +90,7 @@
               "width": 284,
               "height": 350
             },
-            "fileurl": "/lib/entry-js/images/media/entrybot2.png",
+            "fileurl": "./bower_components/entry-js/images/media/entrybot2.png",
             "name": "엔트리봇_걷기2",
             "scale": 100,
             "imageType": "png"
@@ -39,7 +101,7 @@
             "duration": 1.3,
             "ext": ".mp3",
             "id": "8el5",
-            "fileurl": "/lib/entry-js/images/media/bark.mp3",
+            "fileurl": "./bower_components/entry-js/images/media/bark.mp3",
             "name": "강아지 짖는 소리"
           }
         ]
@@ -47,12 +109,12 @@
       "selectedPictureId": "vx80",
       "lock": false,
       "entity": {
-        "x": 0,
-        "y": 0,
+        "x": -15.33,
+        "y": -18.89,
         "regX": 142,
         "regY": 175,
-        "scaleX": 0.3154574132492113,
-        "scaleY": 0.3154574132492113,
+        "scaleX": 0.2075285739741236,
+        "scaleY": 0.2075285739741236,
         "rotation": 0,
         "direction": 90,
         "width": 284,
@@ -71,7 +133,7 @@
   "variables": [
     {
       "name": "변수",
-      "id": "p341",
+      "id": "qk3o",
       "visible": true,
       "value": 0,
       "variableType": "variable",
@@ -81,6 +143,22 @@
       "object": null,
       "x": -230,
       "y": -105
+    },
+    {
+      "name": "리스트",
+      "id": "vj5p",
+      "visible": true,
+      "value": 0,
+      "variableType": "list",
+      "isCloud": false,
+      "isRealTime": false,
+      "cloudDate": false,
+      "object": null,
+      "x": 120,
+      "y": -115,
+      "width": 100,
+      "height": 120,
+      "array": []
     },
     {
       "name": "초시계",
@@ -109,16 +187,36 @@
       "y": -100
     }
   ],
-  "messages": [],
-  "functions": [],
+  "messages": [
+    {
+      "id": "mwdm",
+      "name": "신호"
+    }
+  ],
+  "functions": [
+    {
+      "id": "6dq7",
+      "content": "[[{\"id\":\"t0cr\",\"x\":50,\"y\":30,\"type\":\"function_create\",\"params\":[{\"id\":\"o31u\",\"x\":0,\"y\":0,\"type\":\"function_field_label\",\"params\":[\"함수\",{\"id\":\"cbvm\",\"x\":0,\"y\":0,\"type\":\"function_field_string\",\"params\":[{\"id\":\"f4xa\",\"x\":0,\"y\":0,\"type\":\"stringParam_o5vs\",\"params\":[],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":false,\"extensions\":[]}],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":false,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":false,\"emphasized\":false,\"readOnly\":null,\"copyable\":false,\"extensions\":[]},{\"id\":\"1lsj\",\"x\":0,\"y\":0,\"type\":\"move_direction\",\"params\":[{\"id\":\"h3dr\",\"x\":0,\"y\":0,\"type\":\"number\",\"params\":[\"10\"],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]},null],\"statements\":[],\"movable\":null,\"deletable\":1,\"emphasized\":false,\"readOnly\":null,\"copyable\":true,\"extensions\":[]}]]"
+    }
+  ],
   "tables": [],
   "speed": 60,
   "interface": {
     "canvasWidth": 477,
     "menuWidth": 280,
-    "object": "7y0y"
+    "object": "kkkg"
   },
   "expansionBlocks": [],
   "aiUtilizeBlocks": [],
-  "externalModules": []
+  "hardwareLiteBlocks": [],
+  "externalModules": [],
+  "externalModulesLite": [],
+  "likeCnt": 0,
+  "visit": 0,
+  "isopen": true,
+  "name": "220701_작품",
+  "isPracticalCourse": false,
+  "recentLikeCnt": 0,
+  "childCnt": 0,
+  "comment": 0
 }

@@ -1,4 +1,4 @@
-use std::fs;
+use std::{fs, path::Path};
 
 use serde::{Deserialize, Serialize};
 
@@ -35,7 +35,10 @@ impl Project {
     pub fn from_slice(v: &[u8]) -> Result<Project> {
         Ok(serde_json::from_slice(v)?)
     }
-    pub fn from_file(path: &str) -> Result<Project> {
+    pub fn from_file<P>(path: P) -> Result<Project>
+    where
+        P: AsRef<Path>,
+    {
         let data = fs::read(path)?;
         Project::from_slice(&data)
     }

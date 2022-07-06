@@ -1,3 +1,9 @@
+use std::{env, fs, path::PathBuf};
+
+use uuid::Uuid;
+
+use crate::error::Result;
+
 // https://serde.rs/convert-error.html
 pub(crate) mod serde_as_json_string {
     use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize, Serializer};
@@ -45,4 +51,15 @@ pub(crate) mod serde_bool_like {
             BoolLike::U64(v) => v != 0,
         })
     }
+}
+
+pub(crate) fn get_new_temp_dir() -> Result<PathBuf> {
+    let uuid = Uuid::new_v4();
+    let temp = env::temp_dir();
+
+    let path = temp.join(uuid.to_string());
+
+    fs::create_dir(&path)?;
+
+    Ok(path)
 }

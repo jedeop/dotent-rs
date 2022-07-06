@@ -1,3 +1,4 @@
+pub mod entry;
 pub mod error;
 pub mod project;
 pub mod util;

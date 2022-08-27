@@ -4,6 +4,6 @@ use super::common::Id;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Scene {
-    id: Id,
-    name: String,
+    pub id: Id,
+    pub name: String,
 }

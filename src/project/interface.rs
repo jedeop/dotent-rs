@@ -5,7 +5,7 @@ use super::common::Id;
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Interface {
-    canvas_width: u32,
-    menu_width: u32,
-    object: Id,
+    pub canvas_width: u32,
+    pub menu_width: u32,
+    pub object: Id,
 }

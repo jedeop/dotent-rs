@@ -5,21 +5,21 @@ use super::common::Id;
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Variable {
-    name: String,
-    id: Id,
-    visible: bool,
-    value: Value,
-    variable_type: VariableType,
-    is_cloud: bool,
-    is_real_time: bool,
-    object: Option<Id>,
-    x: f32,
-    y: f32,
+    pub name: String,
+    pub id: Id,
+    pub visible: bool,
+    pub value: Value,
+    pub variable_type: VariableType,
+    pub is_cloud: bool,
+    pub is_real_time: bool,
+    pub object: Option<Id>,
+    pub x: f32,
+    pub y: f32,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "lowercase")]
-enum VariableType {
+pub enum VariableType {
     Variable,
     Timer,
     Answer,
@@ -28,7 +28,7 @@ enum VariableType {
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
-enum Value {
+pub enum Value {
     Number(i32),
     String(String),
 }

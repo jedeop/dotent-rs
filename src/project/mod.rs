@@ -19,13 +19,14 @@ mod variable;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Project {
-    objects: Vec<Object>,
-    scenes: Vec<Scene>,
-    variables: Vec<Variable>,
-    messages: Vec<Message>,
-    functions: Vec<Function>,
-    speed: u32,
-    interface: Interface,
+    pub objects: Vec<Object>,
+    pub scenes: Vec<Scene>,
+    pub variables: Vec<Variable>,
+    pub messages: Vec<Message>,
+    pub functions: Vec<Function>,
+    pub speed: u32,
+    pub interface: Interface,
+    pub name: String,
 }
 
 impl Project {

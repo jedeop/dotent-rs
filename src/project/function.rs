@@ -6,7 +6,7 @@ use crate::util::serde_as_json_string;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Function {
-    id: Id,
+    pub id: Id,
     #[serde(with = "serde_as_json_string")]
-    content: Script,
+    pub content: Script,
 }

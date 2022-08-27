@@ -4,6 +4,6 @@ use super::common::Id;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Message {
-    name: String,
-    id: Id,
+    pub name: String,
+    pub id: Id,
 }

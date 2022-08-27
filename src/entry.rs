@@ -17,6 +17,13 @@ impl Entry {
     pub fn read_file(path: &str) -> Result<Entry> {
         let unpack_path = get_new_temp_dir()?;
 
+        Entry::read_file_with_unpack_path(path, unpack_path)
+    }
+
+    pub fn read_file_with_unpack_path<P>(path: &str, unpack_path: P) -> Result<Entry>
+    where
+        P: AsRef<Path> + Into<PathBuf>,
+    {
         let file = File::open(path)?;
 
         let tar = GzDecoder::new(file);
@@ -24,7 +31,7 @@ impl Entry {
         archive.unpack(&unpack_path)?;
 
         Ok(Entry {
-            unpack_path,
+            unpack_path: unpack_path.into(),
             project: None,
         })
     }

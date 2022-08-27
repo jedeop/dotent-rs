@@ -6,3 +6,11 @@ fn read_ent_file() {
     let project = entry.get_project().unwrap();
     println!("{:#?}", project);
 }
+
+#[test]
+fn read_ent_file_with_unpack_path() {
+    let mut entry =
+        Entry::read_file_with_unpack_path("./tests/data/project.ent", "./temp/").unwrap();
+    let project = entry.get_project().unwrap();
+    println!("{:#?}", project);
+}

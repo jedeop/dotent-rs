@@ -1,6 +1,7 @@
 use std::{collections::HashMap, fs::File, io::Read};
 
 use flate2::read::GzDecoder;
+use lazy_static::lazy_static;
 use regex::Regex;
 use tar::Archive;
 
@@ -40,8 +41,11 @@ impl Entry {
                 entry.read_to_end(&mut buf)?;
                 project = Some(Project::from_slice(&buf)?);
             } else {
-                let regex = Regex::new(r"^temp/\w{2}/\w{2}/(image|sound)/\w{32}.\w{3,4}$").unwrap();
-                if let Some(caps) = regex.captures(path_str) {
+                lazy_static! {
+                    static ref RE: Regex =
+                        Regex::new(r"^temp/\w{2}/\w{2}/(image|sound)/\w{32}.\w{3,4}$").unwrap();
+                }
+                if let Some(caps) = RE.captures(path_str) {
                     let asset_type = caps[1].to_string();
                     let name = path
                         .file_stem()

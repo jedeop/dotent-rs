@@ -1,3 +1,4 @@
+pub mod asset;
 pub mod entry;
 pub mod error;
 pub mod project;

@@ -1,53 +1,93 @@
-use std::{
-    fs::File,
-    path::{Path, PathBuf},
-};
+use std::{collections::HashMap, fs::File, io::Read};
 
 use flate2::read::GzDecoder;
+use regex::Regex;
 use tar::Archive;
 
-use crate::{error::Result, project::Project, util::get_new_temp_dir};
+use crate::{
+    asset::{Asset, AssetData},
+    error::{Error, Result},
+    project::Project,
+};
 
 pub struct Entry {
-    unpack_path: PathBuf,
-    project: Option<Project>,
+    project: Project,
+    assets: HashMap<String, Asset>,
 }
 
 impl Entry {
     pub fn read_file(path: &str) -> Result<Entry> {
-        let unpack_path = get_new_temp_dir()?;
-
-        Entry::read_file_with_unpack_path(path, unpack_path)
-    }
-
-    pub fn read_file_with_unpack_path<P>(path: &str, unpack_path: P) -> Result<Entry>
-    where
-        P: AsRef<Path> + Into<PathBuf>,
-    {
         let file = File::open(path)?;
+        Entry::read(file)
+    }
 
-        let tar = GzDecoder::new(file);
+    pub fn read<R>(r: R) -> Result<Entry>
+    where
+        R: Read,
+    {
+        let tar = GzDecoder::new(r);
         let mut archive = Archive::new(tar);
-        archive.unpack(&unpack_path)?;
 
-        Ok(Entry {
-            unpack_path: unpack_path.into(),
-            project: None,
-        })
+        let mut project: Option<Project> = None;
+        let mut assets = HashMap::<String, Asset>::new();
+
+        for entry in archive.entries()? {
+            let mut entry = entry?;
+            let path = entry.path()?;
+            let path_str = path.to_str().ok_or(Error::PathNotUTF8)?;
+            if path_str == "temp/project.json" {
+                let mut buf = Vec::new();
+                entry.read_to_end(&mut buf)?;
+                project = Some(Project::from_slice(&buf)?);
+            } else {
+                let regex = Regex::new(r"^temp/\w{2}/\w{2}/(image|sound)/\w{32}.\w{3,4}$").unwrap();
+                if let Some(caps) = regex.captures(path_str) {
+                    let asset_type = caps[1].to_string();
+                    let name = path
+                        .file_stem()
+                        .unwrap()
+                        .to_str()
+                        .ok_or(Error::PathNotUTF8)?
+                        .to_string();
+                    let ext = path
+                        .extension()
+                        .unwrap()
+                        .to_str()
+                        .ok_or(Error::PathNotUTF8)?
+                        .to_string();
+                    let mut data = Vec::new();
+                    entry.read_to_end(&mut data)?;
+                    let asset_data = AssetData {
+                        data,
+                        name: name.clone(),
+                        ext,
+                    };
+                    let asset = match &asset_type[..] {
+                        "image" => Asset::Image(asset_data),
+                        "sound" => Asset::Sound(asset_data),
+                        _ => unreachable!(),
+                    };
+                    assets.insert(name, asset);
+                };
+            }
+        }
+
+        let project = match project {
+            Some(project) => project,
+            None => return Err(Error::NoProjectData),
+        };
+
+        Ok(Entry { project, assets })
     }
 
-    pub fn get_project(&mut self) -> Result<&Project> {
-        Ok(self.project.get_or_insert(Project::from_file(
-            Path::new(&self.unpack_path).join("temp/project.json"),
-        )?))
+    pub fn project(&self) -> &Project {
+        &self.project
     }
-    pub fn get_project_mut(&mut self) -> Result<&mut Project> {
-        Ok(self.project.get_or_insert(Project::from_file(
-            Path::new(&self.unpack_path).join("temp/project.json"),
-        )?))
+    pub fn project_mut(&mut self) -> &mut Project {
+        &mut self.project
     }
 
-    pub fn get_unpack_dir(&self) -> &PathBuf {
-        &self.unpack_path
+    pub fn assets(&self) -> &HashMap<String, Asset> {
+        &self.assets
     }
 }

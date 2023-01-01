@@ -9,6 +9,12 @@ pub enum Error {
 
     #[error("I/O error")]
     Io(#[from] io::Error),
+
+    #[error("No Project Data found in entry file")]
+    NoProjectData,
+
+    #[error("Path is not valid utf-8")]
+    PathNotUTF8,
 }
 
 pub type Result<T> = std::result::Result<T, Error>;

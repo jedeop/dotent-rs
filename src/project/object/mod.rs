@@ -8,7 +8,7 @@ use crate::util::serde_as_json_string;
 
 mod sprite;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Object {
     pub id: Id,
@@ -24,14 +24,14 @@ pub struct Object {
     pub entity: Entity,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum ObjectType {
     Sprite,
     TextBox,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum RotateMethod {
     Free,
@@ -39,7 +39,7 @@ pub enum RotateMethod {
     None,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Entity {
     pub x: f32,

@@ -17,7 +17,7 @@ mod scene;
 mod script;
 mod variable;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Project {
     pub objects: Vec<Object>,
     pub scenes: Vec<Scene>,

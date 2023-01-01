@@ -4,10 +4,10 @@ use super::common::Id;
 
 use crate::util::serde_bool_like;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Script(pub Vec<Vec<Block>>);
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Block {
     pub id: Id,
@@ -26,7 +26,7 @@ pub struct Block {
     pub extensions: Vec<String>, // not confirmed.
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(untagged)]
 pub enum Param {
     Block(Block),

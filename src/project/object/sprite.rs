@@ -2,13 +2,13 @@ use serde::{Deserialize, Serialize};
 
 use crate::project::common::Id;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Sprite {
     pictures: Vec<Picture>,
     sounds: Vec<Sound>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Picture {
     pub id: Id,
@@ -25,7 +25,7 @@ fn return_100() -> u32 {
     100
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Dimension {
     pub width: u32,
@@ -34,7 +34,7 @@ pub struct Dimension {
     pub scale_y: Option<f32>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Sound {
     pub id: Id,
     pub duration: f32,

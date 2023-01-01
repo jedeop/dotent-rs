@@ -4,7 +4,7 @@ A crate for handling [Entry](https://playentry.org/) File(`.ent`).
 
 ## Usage
 
-```rs
+```rust
 use dotent::entry::Entry;
 
 fn main() {

@@ -29,6 +29,6 @@ pub enum VariableType {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(untagged)]
 pub enum Value {
-    Number(i32),
+    Number(f32),
     String(String),
 }

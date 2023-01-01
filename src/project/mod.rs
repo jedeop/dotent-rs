@@ -8,14 +8,14 @@ use self::{
 };
 use crate::error::Result;
 
-mod common;
-mod function;
-mod interface;
-mod message;
-mod object;
-mod scene;
-mod script;
-mod variable;
+pub mod common;
+pub mod function;
+pub mod interface;
+pub mod message;
+pub mod object;
+pub mod scene;
+pub mod script;
+pub mod variable;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Project {

@@ -4,8 +4,8 @@ use crate::project::common::Id;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Sprite {
-    pictures: Vec<Picture>,
-    sounds: Vec<Sound>,
+    pub pictures: Vec<Picture>,
+    pub sounds: Vec<Sound>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]

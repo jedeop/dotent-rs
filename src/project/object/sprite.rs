@@ -17,19 +17,19 @@ pub struct Picture {
     pub filename: Option<String>,
     pub name: String,
     #[serde(default = "return_100")]
-    pub scale: u32,
+    pub scale: f32,
     pub image_type: String,
 }
 
-fn return_100() -> u32 {
-    100
+fn return_100() -> f32 {
+    100.0
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Dimension {
-    pub width: u32,
-    pub height: u32,
+    pub width: f32,
+    pub height: f32,
     pub scale_x: Option<f32>,
     pub scale_y: Option<f32>,
 }

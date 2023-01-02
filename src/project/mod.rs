@@ -56,4 +56,10 @@ mod tests {
         println!("{:#?}", Project::from_file("tests/data/project.json")?);
         Ok(())
     }
+
+    #[test]
+    fn read_project_from_file2() -> Result<()> {
+        println!("{:#?}", Project::from_file("tests/data/project2.json")?);
+        Ok(())
+    }
 }

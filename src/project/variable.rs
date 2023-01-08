@@ -15,6 +15,8 @@ pub struct Variable {
     pub object: Option<Id>,
     pub x: f32,
     pub y: f32,
+    pub max_value: Option<Value>,
+    pub min_value: Option<Value>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -24,6 +26,7 @@ pub enum VariableType {
     Timer,
     Answer,
     List,
+    Slide,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]

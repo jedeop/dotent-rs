@@ -19,7 +19,8 @@ pub struct Object {
     pub rotate_method: RotateMethod,
     pub scene: Id,
     pub sprite: Sprite,
-    pub selected_picture_id: Id,
+    pub selected_picture_id: Option<Id>,
+    pub selected_sound_id: Option<Id>,
     pub lock: bool,
     pub entity: Entity,
 }
@@ -54,4 +55,11 @@ pub struct Entity {
     pub height: f32,
     pub font: String,
     pub visible: bool,
+    pub image_index: Option<f32>,
+    pub colour: Option<String>,
+    pub bg_color: Option<String>,
+    pub text_align: Option<f32>,
+    pub line_break: Option<bool>,
+    pub under_line: Option<bool>,
+    pub strike: Option<bool>,
 }

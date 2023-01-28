@@ -4,6 +4,7 @@ use dotent::{entry::Entry, error::Result};
 fn read_basic_ent_file() {
     let entry = Entry::read_file("./tests/data/project.ent").unwrap();
     let project = entry.project();
+    println!("{:#?}", project);
     assert_eq!("220705_작품", project.name);
 }
 

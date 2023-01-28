@@ -1,4 +1,9 @@
-use std::{collections::HashMap, fs::File, io::Read, path::{Path, PathBuf}};
+use std::{
+    collections::HashMap,
+    fs::File,
+    io::Read,
+    path::{Path, PathBuf},
+};
 
 use flate2::read::GzDecoder;
 use lazy_static::lazy_static;
@@ -17,7 +22,6 @@ pub struct Entry {
 }
 
 impl Entry {
-
     /// read entry project from file
     pub fn read_file(path: &str) -> Result<Entry> {
         let file = File::open(path)?;

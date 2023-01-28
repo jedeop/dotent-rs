@@ -25,7 +25,7 @@ pub struct Object {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-#[serde(rename_all = "lowercase")]
+#[serde(rename_all = "camelCase")]
 pub enum ObjectType {
     Sprite,
     TextBox,

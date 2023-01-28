@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fs::File, io::Read};
+use std::{collections::HashMap, fs::File, io::Read, path::{Path, PathBuf}};
 
 use flate2::read::GzDecoder;
 use lazy_static::lazy_static;
@@ -17,11 +17,14 @@ pub struct Entry {
 }
 
 impl Entry {
+
+    /// read entry project from file
     pub fn read_file(path: &str) -> Result<Entry> {
         let file = File::open(path)?;
         Entry::read(file)
     }
 
+    /// read entry project
     pub fn read<R>(r: R) -> Result<Entry>
     where
         R: Read,
@@ -82,6 +85,20 @@ impl Entry {
         };
 
         Ok(Entry { project, assets })
+    }
+
+    /// unpack entry file at specified path
+    pub fn unpack<P>(path: &str, unpack_path: P) -> Result<()>
+    where
+        P: AsRef<Path> + Into<PathBuf>,
+    {
+        let file = File::open(path)?;
+
+        let tar = GzDecoder::new(file);
+        let mut archive = Archive::new(tar);
+        archive.unpack(&unpack_path)?;
+
+        Ok(())
     }
 
     pub fn project(&self) -> &Project {

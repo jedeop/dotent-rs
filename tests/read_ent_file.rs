@@ -1,4 +1,4 @@
-use dotent::entry::Entry;
+use dotent::{entry::Entry, error::Result};
 
 #[test]
 fn read_basic_ent_file() {
@@ -24,4 +24,9 @@ fn read_ent_file_with_asset() {
     for key in keys {
         assert!(assets.contains(&&key[..]));
     }
+}
+
+#[test]
+fn unpack_ent_file() -> Result<()> {
+    Entry::unpack("./tests/data/project.ent", "./temp")
 }
